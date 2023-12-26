@@ -1,0 +1,46 @@
+.security{
+    background-image: linear-gradient(230deg, #73cacb 0%, #443adb 100%);
+    height: 550px;
+    display: flex;
+    align-items:center;
+     justify-content: center;
+     color: white;
+}
+.security h1{
+    letter-spacing: 3px;
+}
+
+.card-icon {
+    font-size: 2rem; 
+    margin-top: 20px; 
+    margin-left: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border: none;
+}
+.card-icon{
+    fill: white;
+    color: white;
+    padding: 0.5em;
+    background-color: #818A91;
+    font-size: 2rem; 
+    margin-top: 20px; 
+    margin-left: 20px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-text{
+    margin-left: 20px;
+    color:#818A91 ;
+    width: 90%;
+    letter-spacing: 1px;
+}
+.card-tittle{
+    margin-left: 20px;
+
+}

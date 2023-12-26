@@ -1,0 +1,260 @@
+<app-dashboard-header></app-dashboard-header>
+<div class="container-fluid main-div ps-0">
+  <div class="d-flex align-items-start tabs ">
+    <div class="nav flex-column nav-pills me-3 tabs-button" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <button class="nav-link active" id="v-pills-myDetails-tab" data-bs-toggle="pill"
+        data-bs-target="#v-pills-myDetails" type="button" role="tab" aria-controls="v-pills-myDetails"
+        aria-selected="true"><span><i class="fa-solid fa-user"></i></span>My Details</button>
+      <button class="nav-link" id="v-pills-Options-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Options"
+        type="button" role="tab" aria-controls="v-pills-Options" aria-selected="false"><span><i
+            class="fa-solid fa-sliders"></i></span>Options</button>
+      <button class="nav-link" id="v-pills-Invitations-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Invitations"
+        type="button" role="tab" aria-controls="v-pills-Invitations" aria-selected="false"><span><i
+            class="fa-solid fa-bell"></i></span>Invitations</button>
+      <button class="nav-link" id="v-pills-Signature-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Signature"
+        type="button" role="tab" aria-controls="v-pills-Signature" aria-selected="false"><span><i
+            class="fa-regular fa-image"></i></span>My Signature</button>
+      <button class="nav-link" id="v-pills-Subscription-tab" data-bs-toggle="pill"
+        data-bs-target="#v-pills-Subscription" type="button" role="tab" aria-controls="v-pills-Subscription"
+        aria-selected="false"><span><i class="fa-solid fa-wallet"></i></span>My Subscription</button>
+      <button class="nav-link" id="v-pills-Password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Password"
+        type="button" role="tab" aria-controls="v-pills-Password" aria-selected="false"><span><i
+            class="fa-solid fa-lock"></i></span>Change Password</button>
+      <button class="nav-link" id="v-pills-Timezone-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Timezone"
+        type="button" role="tab" aria-controls="v-pills-Timezone" aria-selected="false"><span><i
+            class="fa-solid fa-clock"></i></span>Change Timezone</button>
+    </div>
+
+
+
+    <div class="tab-content" id="v-pills-tabContent">
+
+      <!--my detail-->
+      <div class="tab-pane fade show active myDetails" id="v-pills-myDetails" role="tabpanel"
+        aria-labelledby="v-pills-myDetails-tab">
+        <div class="my-5">
+          <form class="row g-3 p-3 scrollable-form">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="firstName">
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lastName">
+            </div>
+            <div class="col-12">
+              <label for="phone" class="form-label">phone</label>
+              <input type="text" class="form-control" id="phone" >
+            </div>
+            <p>---------------Address-------------</p>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Street address </label>
+              <input type="text" class="form-control" id="inputAddress" >
+            </div>
+            <div class="col-md-6">
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city" >
+            </div>
+            <div class="col-md-6">
+              <label for="state" class="form-label">State</label>
+              <input type="text" class="form-control" id="state" >
+            </div>
+            <div class="col-md-6">
+              <label for="zip"  class="form-label">Zip</label>
+              <input type="number" class="form-control" id="zip">
+            </div>
+            <div class="col-md-6">
+              <label for="country"  class="form-label">Country</label>
+              <input type="text" class="form-control" id="country" >
+            </div>
+            <button class="btn btn-primary w-25">Save</button>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="tab-pane fade Options" id="v-pills-Options" role="tabpanel" aria-labelledby="v-pills-Options-tab">
+        <div class="my-5 p-5">
+          <h3>Default Dashboard</h3>
+          <p>Select the dashboard that will load upon logging in.</p>
+          <select class="form-select w-75" aria-label="Default select example">
+            <option selected>select company</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="tab-pane fade" id="v-pills-Invitations" role="tabpanel" aria-labelledby="v-pills-Invitations-tab">
+        <div class="my-5 p-5">
+          <h5>Pending Task</h5>
+          <hr>
+          <h5 class="text-center">No Pending Tasks</h5>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <div class="tab-pane fade Signature" id="v-pills-Signature" role="tabpanel" aria-labelledby="v-pills-Signature-tab">
+        <div class="my-5 p-3">
+          <img src="assets/images/feather.png" alt="logo">
+          <h5>My Signature</h5>
+          <hr>
+         <img src="assets/images/uploadIcon-green.png" alt="logo">
+         <p>Take a photo of your signature on a white background,</p>
+         <img src="assets/images/pngIcon-blue.png" alt="logo">
+         <p>Save it as a PNG file</p>
+         <img src="assets/images/uploadIcon-green-small.png" alt="logo">
+         <p>Upload it below.
+        </p>
+        <label for="upload" style="cursor: pointer;background-color: #2D8EFF;padding: 10px 20px;">Upload</label>
+        <input type="file" id="upload" style="display: none;">
+        </div>
+      </div>
+
+
+
+
+      <div class="tab-pane fade Subscription" id="v-pills-Subscription" role="tabpanel"
+        aria-labelledby="v-pills-Subscription-tab">
+        <div class="my-3 p-5">
+          <h5>Subscription</h5>
+          <hr>
+
+          <div class="card">
+            <button style="border: 0.5px solid gray;">Free</button>
+            <h1>$0.00 / mo</h1>
+            <hr>
+            <p>5 Team members</p>
+            <hr>
+            <p>1 Company dashboard
+            </p>
+            <hr>
+            <p>3 e-Signatures</p>
+            <hr>
+            <button class="btn btn-primary">Roll Back</button>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <div class="tab-pane fade Password" id="v-pills-Password" role="tabpanel" aria-labelledby="v-pills-Password-tab">
+        <div class="my-5">
+          <form class="row g-3 p-3 scrollable-form">
+
+            <div class="col-12">
+              <label for="currentPassword" class="form-label">Current Password</label>
+              <input type="password" class="form-control" id="currentPassword">
+            </div>
+
+            <div class="col-12">
+              <label for="newPassword" class="form-label">New Password</label>
+              <input type="password" class="form-control" id="newPassword">
+            </div>
+            <div class="col-12">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword">
+            </div>
+
+            <button class="btn btn-primary w-25">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="tab-pane fade Timezone" id="v-pills-Timezone" role="tabpanel" aria-labelledby="v-pills-Timezone-tab">
+        <div class="my-5">
+          <form class="row g-3 p-3 scrollable-form">
+            <div class="col-md-6">
+              <button class="btn">Automatically detect</button>
+
+            </div>
+            <div class="col-md-6">
+              <button class="btn">Hawai</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn">Mountain</button>
+
+            </div>
+            <div class="col-md-6">
+              <button class="btn">Desert</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn">Pacific</button>
+
+            </div>
+            <div class="col-md-6">
+              <button class="btn">Eastern</button>
+            </div>
+
+            <select class="form-select " aria-label="Default select example">
+              <option selected>Pakistan</option>
+              <option value="1">india</option>
+              <option value="2">iran</option>
+              <option value="3">Asia</option>
+            </select>
+            <button class="btn btn-primary w-25">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

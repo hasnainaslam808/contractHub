@@ -1,0 +1,42 @@
+<app-header></app-header>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="security">
+                <div>
+                    <h1>Security Information</h1>
+                    <br>
+                    <p>How do we keep your information and documents safe & secure?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section data-aos="fade-up" class="mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-5" *ngFor="let cards of card">
+                <div class="card mb-3">
+                    <div class="row g-0">
+
+                        <div class="card-icon "> <i class="{{cards.icon}}"></i>
+                        </div>
+                        <br><br>
+                        <br><br>
+                        <br><br>
+                        <h2 class="card-tittle">{{cards.tittle}}</h2>
+                        <br>
+                        <p class="card-text mb-5">
+                          {{ cards.text}}
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>

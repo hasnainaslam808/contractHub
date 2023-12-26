@@ -1,0 +1,39 @@
+
+/* alert */
+  .content {
+    background-color: powderblue;
+    padding: 20px;
+  }
+
+  .content img {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
+
+
+
+  /* tabs button */
+  .tabs button{
+    text-align: start;
+    color: #2b373d;
+    background-color: white;
+  }
+ .tabs button:hover{
+  background-color: #F3F6FD;
+ }
+#v-pills-tab{
+  background-color: white;
+  padding: 7px;
+}
+#v-pills-tabContent{
+  background-color: white;
+  padding: 15px;
+}
+a{
+  cursor: pointer;
+}
+.tabs .nav-link.active {
+   
+  background-color: #F3F6FD;
+}

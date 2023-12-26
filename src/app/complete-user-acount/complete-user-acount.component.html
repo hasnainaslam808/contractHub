@@ -1,0 +1,122 @@
+<section class="container-fluid">
+    <div class="col-md-6 col-12  intro-card" *ngIf="counter===0">
+        <div class="card py-4" style="width: 24rem;">
+            <div class="card-body">
+                <h3><span>👋 Welcome,</span> Hasnain Aslam</h3>
+                <p>🤩 We are excited to have you on board!
+                    Lets set up your account.</p>
+                <button class="btn" type="button" (click)="counterPlus()">Let's do it!</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-12  complete-div " *ngIf="counter===1">
+          <div class="back-arrow">
+            <button style="background: none; border: none;" (click)="counterMinus()"><i class="fa-solid fa-arrow-up"></i></button>
+        </div>
+        <div class="circle " >
+            <h4 class="mb-0" ((click))="counterMinus()">1</h4>
+        </div>
+        <div class="card py-4 ps-4" style="width: 30rem;">
+            <h4>🗺 What is your preferred time zone?</h4>
+            <div class="col-12 btn-group mt-2">
+                <button>Automatically detect</button>
+                <button>Hawaii</button>
+            </div>
+            <div class="col-12 btn-group">
+                <button>Pacific</button>
+                <button>Mountain</button>
+            </div>
+            <div class="col-12 btn-group">
+                <button>Central</button>
+                <button>Eastern</button>
+            </div>
+            <div class="col-12 btn-group">
+                <button>Other</button>
+
+            </div>
+            <button class="btn mt-2" style="width: 30%!important;" (click)="counterPlus()">Next</button>
+        </div>
+    </div>
+    <div class="col-md-6 col-12  complete-div " *ngIf="counter===2">
+        <div class="back-arrow">
+            <button style="background: none; border: none;" (click)="counterMinus()"><i class="fa-solid fa-arrow-up"></i></button>
+        </div>
+        <div class="circle ">
+            <h4 class="mb-0">2</h4>
+        </div>
+        <div class="card py-4 ps-4" style="width: 30rem;">
+            <div>
+                <img src="assets/fav-icon/userAddressIcon.png" width="20%" alt="">
+            </div>
+            <div>
+                <h4>🏡 What is your address?</h4>
+                <p>💡The below information is used to populate your documents.</p>
+            </div>
+            <form action="" method="post" class="address-card">
+                <input type="text" placeholder="Street address">
+                <input type="text" placeholder="Street address 2">
+                <input type="text" placeholder="Enter Country Name">
+                <input type="text" placeholder="Enter State Name">
+                <input type="text" placeholder="Enter city Name">
+                <input type="text" placeholder="Enter  Zip Code">
+               <div>
+                <button class="btn mt-2" style="width: 30%!important;" (click)="counterPlus()">Skip</button>
+                <button class="btn mt-2 ms-5" style="width: 30%!important;" (click)="counterPlus()">Next</button>
+               </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6 col-12  complete-div " *ngIf="counter===3">
+             <div class="back-arrow">
+            <button style="background: none; border: none;" (click)="counterMinus()"><i class="fa-solid fa-arrow-up"></i></button>
+        </div>
+        <div class="circle ">
+            <h4 class="mb-0">3</h4>
+        </div>
+        <div class="card py-4 ps-4" style="width: 35rem;">
+            <div>
+                <img src="assets/fav-icon/officeIcon-large.png" width="20%" alt="">
+            </div>
+            <div>
+                <h4>Would you like to set up a company account?</h4>
+                <p>💡With a company account you can:</p>
+            </div>
+            <ul style="list-style: none; font-size: larger; ">
+                <li class="mb-2">📑
+                    Access pre-made templates</li>
+                <li class="mb-2">📰
+                    Create your own templates</li>
+                <li class="mb-2">🧑‍🤝
+                    Implement team workflows</li>
+                <li>✍️
+                    Draft, sign, and manage documents on behalf of a company.</li>
+            </ul>
+            <div>
+                <button style="padding: 7px 10px; border-radius: 50px; border: 1px solid #b2b2b2;" (click)="counterPlus()">No! I will only be receiving documents.</button>
+                <button class="btn mt-2 ms-5" style="width: 30%!important;" routerLink="/company-account">Yes!</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-12  complete-div " *ngIf="counter===4">
+         <div class="back-arrow">
+            <button style="background: none; border: none;" (click)="counterMinus()"><i class="fa-solid fa-arrow-up"></i></button>
+        </div>
+        <div class="circle ">
+            <h4 class="mb-0">4</h4>
+        </div>
+        <div class="col-md-6 col-12  intro-card">
+            <div class="card py-4" style="width: 24rem;">
+                <div>
+                    <img src="assets/img/animated-success-confetti.gif" width="30%" alt="">
+                </div>
+                <div class="card-body">
+
+                    <h3>Thanks, Hussnain!</h3>
+                    <p>🤩 Your ContractHub account is now complete.</p>
+                    <button class="btn" type="button" routerLink="/user-dashboard">Open My New Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

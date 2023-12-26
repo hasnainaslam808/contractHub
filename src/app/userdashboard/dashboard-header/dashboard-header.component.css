@@ -1,0 +1,96 @@
+/* header */
+header {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-container {
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+.dropdownButton{
+  width: 250px; 
+  background-color: #343a40; 
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center;
+   margin-top: -10px;
+}
+@media (max-width: 750px) {
+  .dropdownButton{
+    width: 200px; 
+  justify-content: center;
+  }
+  .dropdownButton img{
+    display: none;
+  }
+  .dropdown {
+    margin-left: 0px;
+  }
+} 
+  .logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .logo p {
+    margin: 0;
+    color: white;
+  }
+  .dropdownItem:hover{
+background-color: #333333;
+  }
+  .dropdownButton .dropdown-toggle::after{
+    display: none;
+  }
+  .navbar-toggler-icon {
+    cursor: pointer;
+  }
+
+
+  
+/* side nav */
+.doc-upload{
+    text-align: center;
+    width: 80%;
+    background-color: #F3F6FD;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .doc-upload button{
+    width: 80%;
+    margin: 5px auto;
+  }
+  .upload-label{
+    border: 2px dashed grey;
+    background-color: white;
+    padding: 10px;margin: auto;
+    cursor: pointer;
+  }
+  .upload-label:hover{
+    border: 2px solid #2D8EFF;
+    box-shadow: 0px 0px 20px 2px #06c;
+     
+  }
+  .btn-grp button{
+   text-align: start;
+  padding: 8px 0;
+    background-color: white;
+    color: grey;
+    width: 100%;
+    border: none;
+  }
+  .btn-grp button:hover{
+  color: #2D8EFF;
+  
+  }
+  .offcanvas-body span{
+    margin-right: 15px;
+  }

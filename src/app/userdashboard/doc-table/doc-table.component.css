@@ -1,0 +1,25 @@
+
+a{
+    cursor: pointer;
+  }
+  .page-link{
+    color: black;
+  }
+  table tr button{
+    padding: 8px 30px;
+    background-color: #F3F6FD;
+    border: 0.1px solid grey ;
+    border-radius: 5px;
+  }
+  table td{
+    padding: 30px;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+
+  

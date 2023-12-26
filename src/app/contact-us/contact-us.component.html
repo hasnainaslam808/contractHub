@@ -1,0 +1,88 @@
+<app-header></app-header>
+<div style="background-color: rgb(238, 239, 241); display: flex;justify-content: space-around;align-items: center; flex-wrap: wrap;">
+
+    <div class="accordion accordion-flush mt-2" id="accordionFlushExample" >
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Api/integration/webhocks
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">We do not yet have integrations, a public API, or Webhooks at this time.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    language support
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">All features and emails in ContractHub are only available in English. Open
+                    language support is on our roadmap but not for 2023</div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Multiple company dashboards
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Each Company has its own workspace that is not visible by people without
+                    Company permissions (except the Super Admin)</div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    What is user
+                </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">A user is a member of your team who can login and access your company
+                    dashboard.
+
+                    Users are not people out side your team that you send documents to.</div>
+            </div>
+        </div>
+    </div>
+    <div class="custom-width">
+        <h1 class="p-3">We'd love to help</h1>
+        <h5 class="p-3">Reach out and we'll be in touch within 24 hours.</h5>
+        <hr>
+        <p class="p-3">Fields marked with an <span> *</span> are required</p>
+
+        <form class="p-4">
+            <div class="form-group mt-2">
+                <label for="name">Name<span> *</span></label>
+                <input type="text" class="form-control mt-2" id="name" pattern="[a-zA-Z ]+"
+                    required>
+                <div class="invalid-feedback">Please provide a valid name.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email<span> *</span></label>
+                <input type="email" class="form-control mt-2" id="email"  required>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message<span> *</span></label>
+                <textarea class="form-control mt-2" id="message" rows="4" ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary my-2 w-100">Submit</button>
+        </form>
+    </div>
+
+
+</div>
+
+<app-footer></app-footer>

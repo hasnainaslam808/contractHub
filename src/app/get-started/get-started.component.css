@@ -1,0 +1,43 @@
+
+
+
+.signup-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(20px);
+    transform: scale(1.1);
+}
+
+h2, p {
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+
+@media (max-width: 760px) {
+    .signup-container {
+        width: 100%;
+        filter: blur(0);
+    }
+}

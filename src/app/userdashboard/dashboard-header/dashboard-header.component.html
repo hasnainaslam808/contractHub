@@ -1,0 +1,117 @@
+<header class="navbar navbar-dark">
+    <!-- Leftmost Icon -->
+    <div class="d-flex justify-content-start">
+        <span class="navbar-brand">
+            <button class="btn " style="background-color: white; border: none;" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"> <i style="color: black;"
+                    class="fa-solid fa-bars"></i> </button>
+        </span>
+
+        <!-- 170px Dark Background Div with GIF, P tag, and Icon -->
+        <div class="dropdownButton">
+            <img src="assets/gif/animated-logo-huge.gif" alt="gif"
+                style="height: 40px; width: 40px; background-color: #2D8EFF; border-radius: 10px;">
+            <div>
+                <p class="text-white">Hussnain Aslam</p>
+                <p class="text-white">Dashboard</p>
+            </div>
+
+            <!-- Bootstrap Dropdown -->
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bars text-white"></i>
+                </a>
+                <!-- Dropdown Content -->
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: #343a40;">
+                    <a class="dropdown-item dropdownItem  text-white" (click)="personalDashboard()" ><span> <i
+                                class="fa-solid fa-user"></i></span> Personal Dashboard</a>
+                    <a class="dropdown-item dropdownItem  text-white" routerLink="/company-dashboard" (click)="companyDashboard()" ><span> <i
+                                class="fa-solid fa-user"></i></span> Company LLC</a>
+                    <a class="dropdown-item dropdownItem text-white" ><span> <i
+                                class="fa-solid fa-plus"></i></span> Create company</a>
+
+                    <!-- Add more items as needed -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Go Back Link -->
+        <a class="navbar-text text-black" style="margin-left: 15px;" (click)="goBack()">Go Back <span
+                style="font-weight: 500;">/Library</span></a>
+    </div>
+
+
+
+
+    <!-- Rightmost Image with Bootstrap Modal Trigger -->
+    <span class="ml-auto" *ngIf="tog===0">
+        <img src="assets/images/Screenshot .png" alt="Rightmost Image" width="130" height="60" data-toggle="modal"
+            data-target="#exampleModal">
+    </span>
+</header>
+
+
+
+
+
+
+
+
+<!-- Bootstrap Modal for Image Pop-up -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" style="display: flex; flex-direction: column; align-items: center;">
+                <!-- Actual modal content (large image) goes here -->
+                <h4>👋 Welcome Hasnain</h4>
+                <p>We have prepared a short video to help kickstart your ContractHub journey.</p>
+                <video src="assets/videos/contractHub_homePage_video.mp4" controls width="370px" height="370px"></video>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- side nav  -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Contract-Hub</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+
+            <div class="btn-grp company-dashboard" style="margin: 10px 0 0 15px;" *ngIf="showCompanyDashboard">
+                <button><span><i class="fa-regular fa-file"></i></span> Documents</button>
+                <button ><span><i class="fa-solid fa-file-lines"></i></span>Templates</button>
+                <button><span><i class="fa-solid fa-address-book"></i></span>Contacts</button>
+                <button><span><i class="fa-solid fa-gear"></i></span>Settings</button>
+            </div>
+
+            <div class="doc-upload card" style="width: 18rem;" *ngIf="tog===0">
+                <div class="card my-4 upload-label">
+                    <label for="upload-doc"><img src="assets/images/uploadLge (1).png" alt="upload" width="60%"><br>
+                        upload to your<br> personal dashboard
+                        <input type="file" id="upload-doc" style="display: none;">
+                    </label>
+
+                </div>
+                <button id="button-label" class="btn btn-primary">Document</button>
+            </div>
+            <div style="height: 15rem;" *ngIf="tog===1">
+
+            </div>
+            <div class="btn-grp" style="margin: 100px 0 0 15px;">
+                <button><span><i class="fa-solid fa-envelope"></i></span> Support</button>
+                <button routerLink="/my-setting" (click)="togle()"><span><i class="fa-solid fa-gear" ></i></span>My Settings</button>
+                <button><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>Log out</button>
+                <button class="btn text-center" style="background-color: #D9E0E5;">contract hub ver 2.0.3</button>
+            </div>
+        </div>
+    </div>

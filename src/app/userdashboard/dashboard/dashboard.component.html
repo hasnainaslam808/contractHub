@@ -1,0 +1,131 @@
+<app-dashboard-header></app-dashboard-header>
+
+<div class="container-fluid" style="background-color: #CCE6F7;">
+    <div class="row">
+        <div>
+            <p style="margin: revert;">👋Welcome, This is your individual dashboard used to sign documents in your
+                individual capacity. If you need to sign documents on behalf of an entity please <a
+                    style="color: #2D8EFF;cursor: pointer;">create a Company Dashboard</a> </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid " style="background-color: #F3F6FD;">
+    <div class="container-fluid" style="padding-top: 40px;">
+        <div class="row  ">
+            <div class="col-md-2 ml-3">
+                <select id="inputState" class="form-select">
+                    <option selected>Newest to oldest</option>
+                    <option>oldest to Newest</option>
+                </select>
+            </div>
+
+            <form class="col-md-8">
+                <input class="form-control me-2" type="search" placeholder="Search document by name, party or email"
+                    aria-label="Search" style="border-radius: 25px;">
+
+            </form>
+
+
+
+            <div class="container-fluid mt-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex tabs mb-3" style="flex-wrap: wrap;">
+                            <div class="nav flex-column nav-pills me-3 col-md-3 col-12 " id="v-pills-tab" role="tablist"
+                                aria-orientation="vertical">
+                                <button class="nav-link active" id="v-pills-todo-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-todo" type="button" role="tab" aria-controls="v-pills-home"
+                                    aria-selected="true"><span><i class="fa-regular fa-folder"></i></span> My TO
+                                    Do</button>
+                                <button class="nav-link" id="v-pills-progress-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-progress" type="button" role="tab"
+                                    aria-controls="v-pills-profile" aria-selected="false"><span><i
+                                            class="fa-regular fa-folder"></i></span> In-Progress</button>
+                                <button class="nav-link" id="v-pills-completed-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-completed" type="button" role="tab"
+                                    aria-controls="v-pills-messages" aria-selected="false"><span><i
+                                            class="fa-regular fa-folder"></i></span> Completed</button>
+                                <button class="nav-link" id="v-pills-all-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-all" type="button" role="tab"
+                                    aria-controls="v-pills-settings" aria-selected="false"><span><i
+                                            class="fa-regular fa-folder"></i></span> All</button>
+                                <button class="nav-link" id="v-pills-bin-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-bin" type="button" role="tab"
+                                    aria-controls="v-pills-settings" aria-selected="false"><span><i
+                                            class="fa-regular fa-folder"></i></span> Bin</button>
+                            </div>
+
+
+                            <div class="tab-content col-md-8 col-12" id="v-pills-tabContent">
+                                <!-- Your component template with Bootstrap classes -->
+                                <div class="tab-pane fade show active" id="v-pills-todo" role="tabpanel"
+                                    aria-labelledby="v-pills-todo-tab" tabindex="0">
+                                    <app-doc-table></app-doc-table>
+                                </div>
+                                <!--progress tab-->
+                                <div class="tab-pane fade" id="v-pills-progress" role="tabpanel"
+                                    aria-labelledby="v-pills-progress-tab" tabindex="0">
+                                    <div class="d-flex align-items-center justify-content-center h-100">
+                                        <div class="text-center">
+                                            <img src="assets/images/inProgress.png" alt="progress" class="img-fluid"
+                                                width="100px" height="100px">
+                                            <h3>No Documents found.</h3>
+                                            <p>🧠 All "Pending" documents will be placed here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--completed tab-->
+                                <div class="tab-pane fade" id="v-pills-completed" role="tabpanel"
+                                    aria-labelledby="v-pills-messages-tab" tabindex="0">
+                                    <div class="d-flex align-items-center justify-content-center h-100">
+                                        <div class="text-center">
+                                            <img src="assets/images/completed.png" alt="progress" class="img-fluid"
+                                                width="100px" height="100px">
+                                            <h3>No Documents found.</h3>
+                                            <p>🧠 All "Completed" documents will appear here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-all" role="tabpanel"
+                                    aria-labelledby="v-pills-settings-tab" tabindex="0">
+                                    <app-doc-table></app-doc-table>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-bin" role="tabpanel"
+                                    aria-labelledby="v-pills-settings-tab" tabindex="0">
+                                    <div class="d-flex align-items-center justify-content-center h-100">
+                                        <div class="text-center">
+                                            <img src="assets/images/trash.png" alt="progress" class="img-fluid"
+                                                width="100px" height="100px">
+                                            <h3>No Documents found.</h3>
+                                            <p>🧠 When you delete a document it will appear here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
