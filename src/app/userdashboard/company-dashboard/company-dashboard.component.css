@@ -1,12 +1,12 @@
 
 
   /* tabs button */
-  .tabs button{
+  .first-tabs button{
     text-align: start;
     color: #2b373d;
     background-color: white;
   }
- .tabs button:hover{
+ .first-tabs button:hover{
   background-color: #F3F6FD;
  }
 #v-pills-tab{
@@ -20,7 +20,124 @@
 a{
   cursor: pointer;
 }
+.first-tabs .nav-link.active {
+   
+  background-color: #F3F6FD;
+}
+#v-pills-todo img{
+  width: 50px;
+  height: 50px;
+  }
+  .todo-div{
+    background-color: #F3F6FD;
+    padding: 10px;
+    border: 0.3px solid #d9e0e5; 
+    border-radius: 5px;
+   }
+/* create-folder */
+.create-folder{
+  margin-left: 50px;
+  font-size: 20px;
+   border: 1px solid grey;
+   border-radius: 15px;
+   padding: 3px 9px 3px 9px;
+}
+.create-folder:hover{
+  border: 2px solid black;
+} 
+
+
+/* template */
+  .create-draft a{
+    border: 0.3px solid #2D8EFF;
+     padding: 5px;
+     border-radius: 5px;
+  }
+  .create-draft a:hover{
+    background-color: #2D8EFF;
+    color: white;
+  }
+ .template-table th{
+    padding: 18px 0 15px 8px;
+  }
+  .template-table td{
+    padding: 30px 0 25px 50px;
+  
+  }
+  .page-link{
+    color: black;
+  }
+  @media only screen and (max-width: 1000px) {
+    .table-responsive {
+      overflow-x: scroll !important;
+  }
+  .template-table td{
+    padding: 30px 0 25px 5px;
+  
+  }
+}
+ 
+
+
+/* my setting */
+/* .main-div{
+  background-color: #F3F6FD;
+} */
+ /* /*   */
+ 
+.tabs-button button {
+  text-align: start;
+  color: #2b373d;
+  background-color: white;
+  border-radius: 0%;
+  border-top: 0.2px solid grey;
+  border-left: 0.2px solid grey;
+  border-right: 0.2px solid grey;
+  padding: 12px;
+}
+
+#v-pills-Members-tab{
+  border-bottom: 0.2px solid grey;
+}
+
+.tabs button span {
+  margin-right: 20px;
+}
+ 
+.tabs-button button:hover {
+  background-color: #F3F6FD;
+}
 .tabs .nav-link.active {
    
   background-color: #F3F6FD;
 }
+
+/* content */
+
+ .second-tab{
+  width: 80%;
+} 
+ form.row {
+  max-height: 400px; 
+  overflow-y: auto; 
+}
+.Properties{
+  width: 60%;
+margin: auto;
+}
+@media (max-width: 700px) {
+  .tabs{
+     flex-wrap: wrap;
+  }
+  .second-tab{
+      width: 100%;
+  }
+  .Properties{
+    width: 100%;
+  }
+  .tabs-button{
+      width: 70%;
+      margin: 20px 0 0 50px;
+  }
+
+} 

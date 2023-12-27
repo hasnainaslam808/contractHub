@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
+import{TemplateService} from '../template.service'
 @Component({
   selector: 'app-dashboard-header',
   templateUrl: './dashboard-header.component.html',
@@ -7,12 +8,15 @@ import { Router, ActivatedRoute } from '@angular/router'
 })
 export class DashboardHeaderComponent implements OnInit {
   currentPage: any;
-  showCompanyDashboard: boolean = false
+ 
   tog: number = 0
-
-  constructor(private route: Router, private activeroute: ActivatedRoute) {
+  showCompanyDashboard: boolean = false
+  constructor(private route: Router, private activeroute: ActivatedRoute, private service:TemplateService) {
     this.currentPage = this.activeroute.snapshot?.url[0]?.path;
-    if (this.currentPage?.includes('home')) {
+    if(this.currentPage?.includes('company-dashboard')){
+      this.showCompanyDashboard=true;
+    }
+  else if (this.currentPage?.includes('home')) {
       this.tog = 0
    
     } else {
@@ -25,9 +29,11 @@ export class DashboardHeaderComponent implements OnInit {
    
   }
   ngOnInit(): void {
-  
+  console.log(this.tog);
   }
- 
+  sendData(tab:string){
+this.service.setactive(tab)
+  }
  
   goBack() {
 
@@ -37,7 +43,8 @@ export class DashboardHeaderComponent implements OnInit {
   }
 
   companyDashboard() {
-    this.showCompanyDashboard = true
+    this.showCompanyDashboard = true;
+    console.log("companyDashboard");
   }
   personalDashboard() {
     this.showCompanyDashboard = false

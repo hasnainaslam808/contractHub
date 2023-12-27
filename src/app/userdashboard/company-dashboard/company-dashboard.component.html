@@ -22,12 +22,19 @@
 
 
 
-            <div class="container-fluid mt-5">
+            <div class="container-fluid mt-5"  *ngIf="show==='Documents'">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="d-flex tabs mb-3" style="flex-wrap: wrap;">
+                        <div class="d-flex first-tabs mb-3" style="flex-wrap: wrap;">
                             <div class="nav flex-column nav-pills me-3 col-md-3 col-12 " id="v-pills-tab" role="tablist"
                                 aria-orientation="vertical">
+                                <button class="nav-link" id="folder-create" type="button" role="tab"
+                                    aria-controls="v-pills-foldercreate" aria-selected="true">
+                                    Folders
+                                    <span data-bs-toggle="modal" data-bs-target="#folderCreateModal"
+                                        class="create-folder">+</span>
+                                </button>
+                                <hr>
                                 <button class="nav-link active" id="v-pills-todo-tab" data-bs-toggle="pill"
                                     data-bs-target="#v-pills-todo" type="button" role="tab" aria-controls="v-pills-home"
                                     aria-selected="true"><span><i class="fa-regular fa-folder"></i></span> My TO
@@ -51,12 +58,50 @@
                             </div>
 
 
-                            <div class="tab-content col-md-8 col-12" id="v-pills-tabContent">
-                                <!-- Your component template with Bootstrap classes -->
+                            <div class="tab-content col-md-8 col-12 " id="v-pills-tabContent">
+                                <!-- template with Bootstrap classes -->
                                 <div class="tab-pane fade show active" id="v-pills-todo" role="tabpanel"
                                     aria-labelledby="v-pills-todo-tab" tabindex="0">
-                                    <app-doc-table></app-doc-table>
+                                    <div class=" p-3">
+                                        <div style="display: flex;">
+                                            <img src="assets/images/feather.png" alt="logo">
+
+                                            <div>
+                                                <h5>Hi Hasnain </h5>
+                                                <p>Nothing needs your attention</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <h2>Actions</h2>
+                                        <div style="display: flex;justify-content: space-between; flex-wrap: wrap;">
+                                            <div class="todo-div">
+                                                <h4>📃 Sign a document</h4>
+                                                <p>Upload a document for signature</p>
+                                                <a href="">Learn how</a>
+                                            </div>
+                                            <div class="todo-div">
+                                                <h4>👥 Upload a template</h4>
+                                                <p>Save time with templates
+                                                </p>
+                                                <a href="">Learn how</a>
+                                            </div>
+                                            <div class="todo-div">
+                                                <h4>🥳 Invite your team</h4>
+                                                <p>Setup approval flows and more...
+                                                </p>
+                                                <a href="">Learn how</a>
+                                            </div>
+                                        </div>
+                                        <div class="bg-primary text-white text-center p-3 mt-3">
+                                            Templates respritory
+                                        </div>
+
+                                    </div>
                                 </div>
+
+
+
+
                                 <!--progress tab-->
                                 <div class="tab-pane fade" id="v-pills-progress" role="tabpanel"
                                     aria-labelledby="v-pills-progress-tab" tabindex="0">
@@ -101,6 +146,283 @@
                     </div>
                 </div>
             </div>
+
+            <!-- template of offcanvas-->
+
+            <div class="table-responsive mt-4" *ngIf="show==='Templates'">
+                <table class="table template-table table-bordered text-center table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Template Name</th>
+                            <th scope="col">Uploaded By</th>
+                            <th scope="col">Draft Count </th>
+                            <th scope="col">Last Updated</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a>Demo Template</a>
+                                <p style="color: #0CC2A0;">Active</p>
+                            </td>
+                            <td><a>Usman Ahmed</a></td>
+                            <td><a>2</a></td>
+                            <td><a>Dec 23,2023 4:14 PM</a></td>
+                            <td class="create-draft"><a>Create Draft</a></td>
+                            <td class="text-start"><a> <i class="fa-solid fa-trash"></i></a>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Demo Template</td>
+                            <td>Usman Ahmed</td>
+                            <td>2</td>
+                            <td>Dec 23,2023 4:14 PM</td>
+                            <td class="create-draft"><a>Create Draft</a></td>
+                            <td class="text-start"><i class="fa-solid fa-trash"></i></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--end of template-->
+
+
+
+
+            <!--contacts-->
+
+            <div class="table-responsive contact-table my-2" *ngIf="show==='Contacts'">
+                <table class="table table-bordered text-center table-striped">
+                    <tbody>
+                        <!-- First row with four columns -->
+                        <tr>
+                            <td>Contact</td>
+                            <td>Email</td>
+                            <td>Entity Type</td>
+                            <td>Actions</td>
+                        </tr>
+
+                        <!-- Second row with four columns -->
+                        <tr>
+                            <td><a>Hasnain Aslam</a>
+                                <p style="color: #0CC2A0;">Member</p>
+                            </td>
+                            <td><a>hasnainaslam@gmail.com</a></td>
+                            <td><a style="background-color: #D9F9FF;">Individual</a></td>
+                            <td> </td>
+                        </tr>
+
+                        <!-- Third row with four columns -->
+                        <tr>
+                            <td><a>Hasnain Aslam</a></td>
+                            <td><a>hasnainaslam@gmail.com</a></td>
+                            <td><a style="background-color: #D9F9FF;">Individual</a></td>
+                            <td> </td>
+                        </tr>
+
+                     
+                    </tbody>
+                </table>
+                <div style="width: 100%; ">
+                    <div style="float: right;">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>   
+            <!--end of contact-->
+            <!--setting-->
+
+            <div class="container-fluid main-div ps-0" *ngIf="show==='Settings'" >
+                <div class="d-flex align-items-start tabs ">
+                    <div class="nav flex-column nav-pills me-3 tabs-button" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                        <button class="nav-link active" id="v-pills-Properties-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-Properties" type="button" role="tab"
+                            aria-controls="v-pills-Properties" aria-selected="true"><span><i class="fa-solid fa-gear"></i></span>Company Properties</button>
+                        <button class="nav-link " id="v-pills-Members-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-Members" type="button" role="tab"
+                            aria-controls="v-pills-Members" aria-selected="true"><span><i class="fa-solid fa-users"></i></span>Members</button>
+
+
+                    </div>
+
+
+
+                    <div class="tab-content second-tab" id="v-pills-tabContent">
+
+                        <!--my detail-->
+                        <div class="tab-pane fade show active Properties" id="v-pills-Properties" role="tabpanel"
+                            aria-labelledby="v-pills-Properties-tab">
+                            <div class="my-5">
+                                <form class="row g-3 p-3 scrollable-form">
+                                    <h6>The below data is used to assist us in pre-populating your documents and forms only!
+                                    </h6>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">Phone </label>
+                                        <input type="text" class="form-control" id="inputAddress">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">Default Jurisdiction (State) </label>
+                                        <input type="text" class="form-control" id="inputAddress">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">Default Choice of Law (State) </label>
+                                        <input type="text" class="form-control" id="inputAddress">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">Default Venue </label>
+                                        <input type="text" class="form-control" id="inputAddress">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">Corporate form (e.g. corporation, LLC etc.). Must be the formation your company is registered as. </label>
+                                        <input type="text" class="form-control" id="inputAddress" value="Limited Liability Company" disabled>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">State of Formation - In what state was the company formed. </label>
+                                        <input type="text" class="form-control" id="inputAddress">
+                                    </div>
+                                 
+                                    <p>---------------Address-------------</p>
+                                    <div class="col-12">
+                                        <label for="inputAddress" class="form-label">Street address </label>
+                                        <input type="text" class="form-control" id="inputAddress">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="city" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="city">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="state" class="form-label">State</label>
+                                        <input type="text" class="form-control" id="state">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="zip" class="form-label">Zip</label>
+                                        <input type="number" class="form-control" id="zip">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="country" class="form-label">Country</label>
+                                        <input type="text" class="form-control" id="country">
+                                    </div>
+                                    <button class="btn btn-primary w-25">Save</button>
+                                </form>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <!-- members -->
+                        <div class="tab-pane fade show  Members" id="v-pills-Members" role="tabpanel"
+                            aria-labelledby="v-pills-Members-tab">
+                            <div class="my-5">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center table-striped">
+                                        <tbody>
+                                            <!-- First row with four columns -->
+                                            <tr>
+                                                <td>Member Names</td>
+                                                <td>Tittle</td>
+                                                <td>Roles</td>
+                                                <td>Delete</td>
+                                            </tr>
+                                
+                                            <!-- Second row with four columns -->
+                                            <tr>
+                                                <td>
+                                                    <a>
+                                                        <h6>Hussnain Aslam</h6>
+                                                        <p>hasnainaslam@gmail.com</p>
+                                                        <p style="color:#2D8EFF;">super Admin <span style="color:#0CC2A0;"> Active</span></p>
+                                                    </a>
+                                                </td>
+                                                <td><input type="text"></td>
+                                                <td><span style="color: #0CC2A0;">Admin</span>
+                                                    <div class="dropdown">
+                                                        <span style="border: 2px solid black; font-size: 15px;font-weight: 600; border-radius: 8px;padding: 2px;"
+                                                            id="adminDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            +
+                                                        </span>
+                                                        <div class="dropdown-menu" aria-labelledby="adminDropdown">
+                                                            <a class="dropdown-item" >Option 1</a>
+                                                            <a class="dropdown-item" >Option 2</a>
+                                                            <a class="dropdown-item" >Option 3</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Delete</td>
+                                            </tr>
+                                            
+                                
+                                            <!-- Third row with four columns -->
+                                           
+                                
+                                        </tbody>
+                                    </table>
+                                
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!--end of setting-->
         </div>
     </div>
 </div>
+
+
+
+
+<!--create folder modal-->
+<!-- Add this modal code at the end of your HTML body -->
+<div class="modal fade" id="folderCreateModal" tabindex="-1" role="dialog" aria-labelledby="folderCreateModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="folderCreateModalLabel">Create Folder</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="folderName">Folder Name:</label>
+                <input type="text" class="form-control" id="folderName">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveFolder()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

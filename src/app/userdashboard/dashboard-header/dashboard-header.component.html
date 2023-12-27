@@ -24,9 +24,9 @@
                 </a>
                 <!-- Dropdown Content -->
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: #343a40;">
-                    <a class="dropdown-item dropdownItem  text-white" (click)="personalDashboard()" ><span> <i
+                    <a class="dropdown-item dropdownItem  text-white" routerLink="/home"><span> <i
                                 class="fa-solid fa-user"></i></span> Personal Dashboard</a>
-                    <a class="dropdown-item dropdownItem  text-white" routerLink="/company-dashboard" (click)="companyDashboard()" ><span> <i
+                    <a  class="dropdown-item dropdownItem  text-white" routerLink="/company-dashboard" ><span> <i
                                 class="fa-solid fa-user"></i></span> Company LLC</a>
                     <a class="dropdown-item dropdownItem text-white" ><span> <i
                                 class="fa-solid fa-plus"></i></span> Create company</a>
@@ -88,10 +88,10 @@
         <div>
 
             <div class="btn-grp company-dashboard" style="margin: 10px 0 0 15px;" *ngIf="showCompanyDashboard">
-                <button><span><i class="fa-regular fa-file"></i></span> Documents</button>
-                <button ><span><i class="fa-solid fa-file-lines"></i></span>Templates</button>
-                <button><span><i class="fa-solid fa-address-book"></i></span>Contacts</button>
-                <button><span><i class="fa-solid fa-gear"></i></span>Settings</button>
+                <button (click)="sendData('Documents')"><span><i class="fa-regular fa-file"></i></span> Documents</button>
+                <button (click)="sendData('Templates')" ><span><i class="fa-solid fa-file-lines"></i></span>Templates</button>
+                <button (click)="sendData('Contacts')"><span><i class="fa-solid fa-address-book"></i></span>Contacts</button>
+                <button (click)="sendData('Settings')"><span><i class="fa-solid fa-gear"></i></span>Settings</button>
             </div>
 
             <div class="doc-upload card" style="width: 18rem;" *ngIf="tog===0">
