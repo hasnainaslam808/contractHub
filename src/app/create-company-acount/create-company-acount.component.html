@@ -9,31 +9,31 @@
         </div>
         <div class="card py-4 ps-4" style="width: 35rem;">
             <div>
-                <img src="assets/logos/companyIcon-blue.png" width="16%" alt="">
+                <img src="assets/images/companyIcon-blue.png" width="16%" alt="">
             </div>
             <div class="my-3">
                 <h4>Company Information:</h4>
 
             </div>
-            <form action="#" class="company-reg">
+            <form  class="company-reg" #emailForCompany="ngForm" (ngSubmit)="onSubmitEmail(emailForCompany.value)">
                 <label for="company-name">Company legal name</label>
-                <input type="text" id="company-name" placeholder="My Company, LLC.">
+                <input type="text" id="company-name" placeholder="My Company, LLC." ngModel name="compName">
                 <label for="Admin-email">Admin email</label>
                 <p class="mb-2">💡Used for company dashboard notifications & administration</p>
-                <input type="email" placeholder="mycompany@mycompany.com">
+                <input type="email" placeholder="mycompany@mycompany.com" ngModel name="compEmail">
                 <div class="d-flex text-start my-3 " style="text-align: start;">
                     <input type="checkbox" name="" id="policy" style="height: 20px!important; width: 90px!important;">
                     <label for="policy">Would you like to set this company as your primary dashboard?</label>
                 </div>
                 <div>
                     <button class="btn mt-2 " style="width: 30%!important;">Exit</button>
-                    <button class="btn mt-2 ms-5" style="width: 30%!important;" (click)="counterPlus()">Next</button>
+                    <button type="submit" class="btn mt-2 ms-5" style="width: 30%!important;" (click)="counterPlus()">Next</button>
                 </div>
             </form>
 
         </div>
     </div>
-    <div class="col-md-6 col-12  complete-div  " *ngIf="counter===1">
+    <!-- <div class="col-md-6 col-12  complete-div  " *ngIf="counter===1">
         <div class="back-arrow">
             <button style="background: none; border: none;" (click)="counterMinus()"><i class="fa-solid fa-arrow-up"></i></button>
         </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="card py-4 ps-4" style="width: 35rem;">
             <div>
-                <img src="assets/logos/briefCaseIcon-green.png" width="16%" alt="">
+                <img src="assets/images/briefCaseIcon-green.png" width="16%" alt="">
             </div>
             <div class="my-3">
                 <h4>Corporate form</h4>
@@ -84,9 +84,9 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-    <div class="col-md-6 col-12  complete-div  " *ngIf="counter===2">
+        </div> -->
+    <!-- </div> -->
+    <div class="col-md-6 col-12  complete-div  " *ngIf="counter===1">
         <div class="back-arrow">
             <button style="background: none; border: none;" (click)="counterMinus()"><i class="fa-solid fa-arrow-up"></i></button>
         </div>
@@ -95,24 +95,24 @@
         </div>
         <div class="card py-4 ps-4" style="width: 35rem;">
             <div>
-                <img src="assets/logos/mapIcon-blue.png" width="16%" alt="">
+                <img src="assets/images/mapIcon-blue.png" width="16%" alt="">
             </div>
             <div class="my-3">
                 <h4>In what state was your company formed?</h4>
                 <p>💡The below information is used to populate your documents.</p>
             </div>
-            <form action="#" class="company-reg">
+            <form  class="company-reg" #compName="ngForm" (ngSubmit)="onSubmitName(compName.value)">
                 <label for="company-name">Company legal name</label>
                 <input type="text" id="company-name" placeholder="My Company, LLC." style="width: 70%!important;">
                 <div>
                     <button class="btn mt-2 " style="width: 30%!important;" (click)="counterPlus()">Skip</button>
-                    <button class="btn mt-2 ms-5" style="width: 30%!important;" (click)="counterPlus()">Next</button>
+                    <button type="submit" class="btn mt-2 ms-5" style="width: 30%!important;" (click)="counterPlus()">Next</button>
                 </div>
             </form>
 
         </div>
     </div>
-    <div class="col-md-6 col-12  complete-div " *ngIf="counter===3">
+    <div class="col-md-6 col-12  complete-div " *ngIf="counter===2">
         <div class="back-arrow">
             <button style="background: none; border: none;" (click)="counterMinus()"><i class="fa-solid fa-arrow-up"></i></button>
         </div>
@@ -121,30 +121,30 @@
       </div>
       <div class="card py-4 ps-4" style="width: 30rem;">
         <div>
-            <img src="assets/logos/watchIcon-green.png" width="20%" alt="">
+            <img src="assets/images/watchIcon-green.png" width="20%" alt="">
         </div>
           <h4>Company time zone</h4>
           <p>💡The below information is used to display correct dates & populate your documents.</p>
           <div class="col-12 btn-group mt-2">
-              <button>Automatically detect</button>
-              <button>Hawaii</button>
+              <button (click)="timeZone('Automatically detect')">Automatically detect</button>
+              <button (click)="timeZone('Hawaii')">Hawaii</button>
           </div>
           <div class="col-12 btn-group">
-              <button>Pacific</button>
-              <button>Mountain</button>
+              <button (click)="timeZone('Pacific')">Pacific</button>
+              <button (click)="timeZone('Mountain')">Mountain</button>
           </div>
           <div class="col-12 btn-group">
-              <button>Central</button>
-              <button>Eastern</button>
+              <button (click)="timeZone('Central')">Central</button>
+              <button (click)="timeZone('Eastern')">Eastern</button>
           </div>
           <div class="col-12 btn-group">
-              <button>Other</button>
+              <button (click)="timeZone('Other')">Other</button>
 
           </div>
           <button class="btn mt-2" style="width: 30%!important;" (click)="counterPlus()">Next</button>
       </div>
   </div>
-    <div class="col-md-6 col-12  complete-div " *ngIf="counter===4">
+    <div class="col-md-6 col-12  complete-div " *ngIf="counter===3">
         <div class="back-arrow">
             <button style="background: none; border: none;" (click)="counterMinus()"><i class="fa-solid fa-arrow-up"></i></button>
         </div>
@@ -153,36 +153,34 @@
         </div>
         <div class="card py-4 ps-4" style="width: 30rem;">
             <div>
-                <img src="assets/logos/locationIcon-blue.png" width="20%" alt="">
+                <img src="assets/images/locationIcon-blue.png" width="20%" alt="">
             </div>
             <div>
                 <h4>What is your company address??</h4>
                 <p>(Optional) 💡The below information is used to populate your documents</p>
             </div>
-            <form action="" method="post" class="address-card">
-                <input type="text" placeholder="Street address">
-                <input type="text" placeholder="Street address 2">
-                <input type="text" placeholder="Enter Country Name">
-                <input type="text" placeholder="Enter State Name">
-                <input type="text" placeholder="Enter city Name">
-                <input type="text" placeholder="Enter  Zip Code">
+            <form  class="address-card" #compAddress="ngForm" (ngSubmit)="onSubmitAddress(compAddress.value)">
+                <input type="text" placeholder="Enter Country Name" ngModel name="country">
+                <input type="text" placeholder="Enter State Name" ngModel name="state">
+                <input type="text" placeholder="Enter city Name" ngModel name="city">
+                <input type="text" placeholder="Enter  Zip Code" ngModel name="zip">
                 <div>
 
-                    <button class="btn mt-2 ms-5" style="width: 30%!important;" (click)="counterPlus()">Create</button>
+                    <button  class="btn mt-2 ms-5" style="width: 30%!important;"(click)="counterPlus()" >Create</button>
                 </div>
             </form>
         </div>
     </div>
-    <div class="col-md-6 col-12  intro-card" *ngIf="counter===5">
+    <div class="col-md-6 col-12  intro-card" *ngIf="counter===4">
         <div class="card py-4" style="width: 24rem;">
             <div class="card-body text-center">
                 <div>
-                    <img src="assets/logos/animated-success-confetti.gif" width="40%" alt="">
+                    <img src="assets/images/animated-success-confetti.gif" width="40%" alt="">
                 </div>
              <h3>Thanks, Hussnain Aslam.</h3>
              <p>Your new company account is ready to use.</p>
              <hr>
-                <button class="btn" type="button">Let's go!</button>
+                <button class="btn" type="button" (click)="crateCompany()">Let's go!</button>
             </div>
           </div>
     </div>

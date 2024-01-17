@@ -19,19 +19,19 @@
         <div class="card py-4 ps-4" style="width: 30rem;">
             <h4>🗺 What is your preferred time zone?</h4>
             <div class="col-12 btn-group mt-2">
-                <button>Automatically detect</button>
-                <button>Hawaii</button>
+                <button (click)="timeValue('Test')">Automatically detect</button>
+                <button (click)="timeValue('Test')">Hawaii</button>
             </div>
             <div class="col-12 btn-group">
-                <button>Pacific</button>
-                <button>Mountain</button>
+                <button (click)="timeValue('Test')">Pacific</button>
+                <button (click)="timeValue('Test')">Mountain</button>
             </div>
             <div class="col-12 btn-group">
-                <button>Central</button>
-                <button>Eastern</button>
+                <button (click)="timeValue('Test')">Central</button>
+                <button (click)="timeValue('Test')">Eastern</button>
             </div>
             <div class="col-12 btn-group">
-                <button>Other</button>
+                <button (click)="timeValue('Test')">Other</button>
 
             </div>
             <button class="btn mt-2" style="width: 30%!important;" (click)="counterPlus()">Next</button>
@@ -46,22 +46,20 @@
         </div>
         <div class="card py-4 ps-4" style="width: 30rem;">
             <div>
-                <img src="assets/fav-icon/userAddressIcon.png" width="20%" alt="">
+                <img src="assets/icons/userAddressIcon.png" width="20%" alt="">
             </div>
             <div>
                 <h4>🏡 What is your address?</h4>
                 <p>💡The below information is used to populate your documents.</p>
             </div>
-            <form action="" method="post" class="address-card">
-                <input type="text" placeholder="Street address">
-                <input type="text" placeholder="Street address 2">
-                <input type="text" placeholder="Enter Country Name">
-                <input type="text" placeholder="Enter State Name">
-                <input type="text" placeholder="Enter city Name">
-                <input type="text" placeholder="Enter  Zip Code">
+            <form  class="address-card" #address="ngForm" (ngSubmit)="onSubmit(address.value)">
+                <input type="text" placeholder="Enter Country Name" ngModel name="country">
+                <input type="text" placeholder="Enter State Name" ngModel name="state">
+                <input type="text" placeholder="Enter city Name" ngModel name="city">
+                <input type="text" placeholder="Enter  Zip Code" ngModel name="zip">
                <div>
                 <button class="btn mt-2" style="width: 30%!important;" (click)="counterPlus()">Skip</button>
-                <button class="btn mt-2 ms-5" style="width: 30%!important;" (click)="counterPlus()">Next</button>
+                <button type="submit" class="btn mt-2 ms-5" style="width: 30%!important;" >Next</button>
                </div>
             </form>
         </div>
@@ -75,7 +73,7 @@
         </div>
         <div class="card py-4 ps-4" style="width: 35rem;">
             <div>
-                <img src="assets/fav-icon/officeIcon-large.png" width="20%" alt="">
+                <img src="assets/icons/officeIcon-large.png" width="20%" alt="">
             </div>
             <div>
                 <h4>Would you like to set up a company account?</h4>
@@ -107,7 +105,7 @@
         <div class="col-md-6 col-12  intro-card">
             <div class="card py-4" style="width: 24rem;">
                 <div>
-                    <img src="assets/img/animated-success-confetti.gif" width="30%" alt="">
+                    <img src="assets/images/animated-success-confetti.gif" width="30%" alt="">
                 </div>
                 <div class="card-body">
 

@@ -6,6 +6,8 @@ import { DocTableComponent } from './doc-table/doc-table.component';
 import { MySettingComponent } from './my-setting/my-setting.component';
 import { UserDashboardRoutingModule } from './user-dashboard-routing.module';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 const components = [
   DashboardComponent,
@@ -22,7 +24,9 @@ const components = [
   ],
   imports: [
     CommonModule,
-    UserDashboardRoutingModule
+    UserDashboardRoutingModule,
+    NgxExtendedPdfViewerModule,
+    PdfViewerModule
   ],
   exports: [
     ...components

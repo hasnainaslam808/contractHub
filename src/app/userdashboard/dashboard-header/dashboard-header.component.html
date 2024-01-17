@@ -38,7 +38,7 @@
 
         <!-- Go Back Link -->
         <a class="navbar-text text-black" style="margin-left: 15px;" (click)="goBack()">Go Back <span
-                style="font-weight: 500;">/Library</span></a>
+                style="font-weight: 500;">/{{currentPage}}</span></a>
     </div>
 
 
@@ -50,9 +50,6 @@
             data-target="#exampleModal">
     </span>
 </header>
-
-
-
 
 
 
@@ -98,7 +95,7 @@
                 <div class="card my-4 upload-label">
                     <label for="upload-doc"><img src="assets/images/uploadLge (1).png" alt="upload" width="60%"><br>
                         upload to your<br> personal dashboard
-                        <input type="file" id="upload-doc" style="display: none;">
+                        <input type="file" id="upload-doc"  (change)="onFileChange($event)" style="display: none;">
                     </label>
 
                 </div>
@@ -110,7 +107,7 @@
             <div class="btn-grp" style="margin: 100px 0 0 15px;">
                 <button><span><i class="fa-solid fa-envelope"></i></span> Support</button>
                 <button routerLink="/my-setting" (click)="togle()"><span><i class="fa-solid fa-gear" ></i></span>My Settings</button>
-                <button><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>Log out</button>
+                <button (click)="logOut()"><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>Log out</button>
                 <button class="btn text-center" style="background-color: #D9E0E5;">contract hub ver 2.0.3</button>
             </div>
         </div>

@@ -9,37 +9,36 @@
     -webkit-backdrop-filter: blur(11px);
     position: absolute;
     overflow: hidden;
-}
-.login{
-display: flex;
+  }
+  .login{
+  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
   height: 100vh;
-  gap: 15px;
+  gap: 8px;
   z-index: 1212;
-}
-
-.login img{
+  }
+  .login img{
     background-color:#2D8EFF;
     width: 50px;
      height: 50px;
      border-radius: 5px;
      text-align: center;
-     margin-top: 15px;
-}
-.login form{
+    
+  }
+  .login form{
     width: 80%;
-}
-.login form button{
+  }
+  .login form button{
     background-color: rgb(43, 55, 61);
     border-color:rgb(43, 55, 61) ;
     color: white;
-}
-a{
+  }
+  a{
     cursor: pointer;
     font-weight: 500;
-}
-label{
+  }
+  label{
     font-size: 14px;
-}
+  }

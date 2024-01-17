@@ -6,47 +6,68 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { LoginComponent } from './login/login.component';
 import { CompleteUserAcountComponent } from './complete-user-acount/complete-user-acount.component';
 import { CreateCompanyAcountComponent } from './create-company-acount/create-company-acount.component';
-import { DashboardComponent } from './userdashboard/dashboard/dashboard.component';
-import { MySettingComponent } from './userdashboard/my-setting/my-setting.component';
 import { GetStartedComponent } from './get-started/get-started.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AuthguardGuard } from './authguard.guard';
+import { ChildernGuard } from './services/childern.guard';
+import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
+
 
 const routes: Routes = [
   {
- path:'',
- component:HomeComponent
+    path: '',
+    component: HomeComponent
   },
   {
-    path:'security',
-    component:SecurityComponent,
+    path: 'home-page',
+    component:HomeComponent
   },
   {
-    path:'contact-us',
-    component:ContactUsComponent,
+    path: 'security',
+    component: SecurityComponent,
   },
   {
-    path:'login',
-component:LoginComponent
+    path: 'contact-us',
+    component: ContactUsComponent,
   },
   {
-    path:'user-account',
-    component:CompleteUserAcountComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path:'company-account',
-    component:CreateCompanyAcountComponent
+    path: 'reset-password',
+    component: ResetPasswordComponent
   },
   {
-    path:'getStarted',
-    component:GetStartedComponent
+    path: 'user-account',
+    component: CompleteUserAcountComponent,
+    canActivate:[AuthguardGuard]
   },
   {
-    path: 'user-dashboard',
+    path: 'company-account',
+    component: CreateCompanyAcountComponent,
+    canActivate:[AuthguardGuard]
+  },
+  {
+    path: 'getStarted',
+    component: GetStartedComponent
+  },
+  {
+    path:'verify/:token',
+    component:OtpVerificationComponent
+  },
+  {
+    path:'verify-reset-link/:token',
+    component:OtpVerificationComponent
+  },
+  {
+    path: 'user-dashboard', canActivateChild:[ChildernGuard],
     loadChildren: () => import(`./userdashboard/user-dashboard.module`).then(
       module => module.UserDashboardModule
     )
   }
 
-  
+
 ];
 
 @NgModule({

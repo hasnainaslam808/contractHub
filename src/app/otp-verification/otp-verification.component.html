@@ -1,0 +1,32 @@
+<div class="container-fluid main-div">
+    <div class="row"  style="background-image: url('assets/images/bluredBG.png');overflow: hidden">
+        <div class="col-md-4 offset-md-4 login"> 
+            <img src="assets/gif/animated-logo-huge.gif" alt="gif">
+            <h4> ContractHub Registration</h4>
+  
+            <form #resetForm="ngForm" (ngSubmit)="onSubmit(resetForm.value)">
+                <div class="mb-2">
+                    <label for="password" class="form-label">New Password</label>
+                    <input type="password" class="form-control" #passwordField1="ngModel" id="newPassword"  ngModel name="password"pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$"
+                    minlength="8"  required>
+                    <span *ngIf="passwordField1.invalid && passwordField1.touched " class="text-danger" style="font-size: 12px;">use capital,small letter and numbers & minimum length is 8 characters</span>
+                </div>
+                <div class="mb-2">
+                    <label for="password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" #passwordField2="ngModel"
+                    name="confirmPassword" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$"
+                    minlength="8" ngModel required >
+                </div>
+                <span *ngIf="passwordField2.touched && passwordField1.value !== passwordField2.value" class="text-danger" style="font-size: 12px;">Password not matched</span>
+                <div style="display: flex;align-items: first baseline;">
+                  <input type="checkbox" >
+                  <p>I agree to the <a >Terms and Conditions</a> </p>
+                </div>
+                <button type="submit" class="btn  w-100" [disabled]="resetForm.invalid">Sign up</button>
+            </form>
+            <p> <a routerLink="/login">Return to login</a></p>
+          
+  
+        </div>
+    </div>
+  </div>

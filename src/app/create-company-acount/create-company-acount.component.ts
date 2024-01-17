@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-create-company-acount',
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class CreateCompanyAcountComponent implements OnInit {
 
 
-
-  constructor() { }
+activeButton=''
+formValue:any;
+legalName=''
+email:any;
+  constructor(private httpservice:HttpService) { }
 
   counter:number=0;
 
@@ -24,4 +28,27 @@ export class CreateCompanyAcountComponent implements OnInit {
   
   }
 
+
+  timeZone(tab: string){
+this.activeButton = tab;
+  }
+  onSubmitAddress(formValue: any){
+this.formValue = formValue;
+  }
+  onSubmitName(name: string){
+    this.legalName=name;
+  }
+  onSubmitEmail(form:any){
+this.email=form;
+  }
+
+  crateCompany(){
+const colectData=[
+]
+
+// this.httpservice.createCompany()
+// .subscribe(res)=>{
+
+// }
+  }
 }

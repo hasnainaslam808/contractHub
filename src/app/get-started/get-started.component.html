@@ -1,47 +1,43 @@
-<div class="signup-container">
-    <img src="assets/gif/animated-logo-huge.gif" alt="GIF"
-        style="background-color: #2D8EFF; height: 80px; width: 80px;">
-    <h2>ContractHub Registration</h2>
-    <p>Please create your account below to get started with ContractHub.</p>
+<div class="container-fluid main-div">
+  <div class="row"  style="background-image: url('assets/images/bluredBG.png');overflow: hidden">
+      <div class="col-md-4 offset-md-4 login"> 
+          <img src="assets/gif/animated-logo-huge.gif" alt="gif">
+          <h4> ContractHub Registration</h4>
 
-    <!-- Assuming you have imported necessary Angular and Angular Material modules -->
-    <form class="example-form">
+          <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm.value)">
+           
+              <div class="mb-2">
+                  <label for="exampleInputEmail1" class="form-label">Full Name</label>
+                  <input type="email" class="form-control" #name="ngModel" aria-describedby="emailHelp" ngModel name="name" pattern="[a-zA-Z\s]+$" required>
+                  <span *ngIf="name.invalid && name.touched " class="text-danger" style="font-size: 12px;">Enter Valid Name</span>
+              </div>
+              <div class="mb-2">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" #email="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel name="email" email required>
+                <span *ngIf="email.invalid && email.touched " class="text-danger" style="font-size: 12px;">Enter Valid Email</span>
+            </div>
+              <div class="mb-2">
+                  <label for="password" class="form-label">New Password</label>
+                  <input type="password" class="form-control" #passwordField1="ngModel" id="newPassword"  ngModel name="password"pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$"
+                  minlength="8"  required>
+                  <span *ngIf="passwordField1.invalid && passwordField1.touched " class="text-danger" style="font-size: 12px;">use capital,small letter and numbers & minimum length is 8 characters</span>
+              </div>
+              <div class="mb-2">
+                  <label for="password" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" #passwordField2="ngModel"
+                  name="confirmPassword" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$"
+                  minlength="8" ngModel required >
+              </div>
+              <span *ngIf="passwordField2.touched && passwordField1.value !== passwordField2.value" class="text-danger" style="font-size: 12px;">Password not matched</span>
+              <div style="display: flex;align-items: first baseline;">
+                <input type="checkbox" >
+                <p>I agree to the <a >Terms and Conditions</a> </p>
+              </div>
+              <button type="submit" class="btn  w-100" [disabled]="signUpForm.invalid">Sign up</button>
+          </form>
+          <p> <a routerLink="/login">Return to login</a></p>
+        
 
-        <table class="example-full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>First name</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width">
-            <mat-label> Last Name </mat-label>
-            <input matInput>
-          </mat-form-field></td>
-        </tr></table>
-      
-        <p>
-          <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <textarea matInput></textarea>
-          </mat-form-field>
-        </p>
-      
-        <table class="example-full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>City</mat-label>
-            <input matInput placeholder="Ex. San Francisco">
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>State</mat-label>
-            <input matInput placeholder="Ex. California">
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width">
-            <mat-label>Postal Code</mat-label>
-            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
-            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-          </mat-form-field></td>
-        </tr></table>
-      </form>
-      
-   
-
+      </div>
+  </div>
 </div>

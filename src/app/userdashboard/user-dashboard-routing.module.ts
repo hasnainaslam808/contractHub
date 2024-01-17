@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MySettingComponent } from './my-setting/my-setting.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
+import { AuthguardGuard } from '../authguard.guard';
 
 const routes: Routes = [
   {
@@ -12,15 +13,18 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate:[AuthguardGuard]
   },
   {
     path: 'my-setting',
-    component: MySettingComponent
+    component: MySettingComponent,
+    canActivate:[AuthguardGuard]
   },
   {
     path: 'company-dashboard',
-    component: CompanyDashboardComponent
+    component: CompanyDashboardComponent,
+    canActivate:[AuthguardGuard]
 
   },
 ];

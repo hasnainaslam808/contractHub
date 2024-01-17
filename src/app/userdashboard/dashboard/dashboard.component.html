@@ -26,7 +26,29 @@
 
             </form>
 
+            <!-- <div *ngIf="uploadedFileUrl"> -->
+                <!-- <label>Uploaded File:</label> 
+                <img [src]="uploadedFileUrl" alt="Uploaded File" />
+              
+              </div> -->
+                <!-- <embed [src]="'http://localhost:9090/' + documentUrl" type=""> -->
+                <ngx-extended-pdf-viewer style="height: 500px;width: 90%;"
+                    [src]="'http://localhost:9090/Document-1704971159424-169644384.pdf'"
+                    [useBrowserLocale]="true"></ngx-extended-pdf-viewer>
+            <!-- </div> -->
+            <!-- <pdf-viewer [src]="'https://www.africau.edu/images/default/sample.pdf'" [render-text]="true"
+                [original-size]="false" style="width: 400px; height: 500px"></pdf-viewer>
 
+             <pdf-viewer [src]="'http://localhost:9090/' + documentUrl" [(page)]="page" [rotation]="rotation" [original-size]="originalSize"
+                [show-all]="showAll" [fit-to-page]="fitToPage" 
+                [zoom]="zoom" [zoom-scale]="zoomScale" [stick-to-page]="stickToPage" [render-text]="renderText"
+                [external-link-target]="'blank'" [autoresize]="autoresize" 
+                [show-borders]="false"></pdf-viewer> -->
+
+            <!-- (after-load-complete)="afterLoadComplete($event)" -->
+            <!-- (error)="onError($event)"
+                (on-progress)="onProgress($event)" (page-rendered)="pageRendered($event)"
+                (pages-initialized)="pageInitialized($event)" (pageChange)="pageChange($event)" -->
 
             <div class="container-fluid mt-5">
                 <div class="row">
@@ -110,22 +132,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
