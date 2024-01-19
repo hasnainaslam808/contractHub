@@ -25,7 +25,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ServiceInterInterceptor } from './services/service-inter.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
-
+import * as pdfjsLib from 'pdfjs-dist';
 @NgModule({
     declarations: [
         AppComponent,
@@ -53,6 +53,7 @@ import { OtpVerificationComponent } from './otp-verification/otp-verification.co
         HttpClientModule,
         BrowserAnimationsModule, // required animations module
         ToastrModule.forRoot(), // ToastrModule added here
+        
     ],
     providers: [  {
         provide: HTTP_INTERCEPTORS,
