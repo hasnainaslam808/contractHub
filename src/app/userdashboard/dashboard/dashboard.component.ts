@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ElementRef,  ViewChild } from '@angular/core';
-import * as pdfjsLib from 'pdfjs-dist';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChangeDetectionStrategy,  } from '@angular/core';
+import {  IPDFViewerApplication, NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+import { PageRenderEvent } from 'ngx-extended-pdf-viewer/lib/events/page-render-event';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,12 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild('pdfCanvas') pdfCanvas: ElementRef<HTMLCanvasElement> | undefined;
   documentUrl:any;
 
   
   error: any;
-  page = 1;
+  // page = 1;
   rotation = 0;
   zoom = 1.0;
   zoomScale: any = 'page-width';
@@ -32,57 +33,161 @@ export class DashboardComponent implements OnInit {
   pdfQuery = '';
   mobile = false;
 
-  constructor(private authservice: AuthService) {}
+ 
 
   uploadedFileUrl: string | null = null;
 
   ngOnInit() {
   this.documentUrl = `http://localhost:9090/${localStorage.getItem('docUrl')}`;
+  console.log(this.documentUrl, "this document url")
   console.log(this.documentUrl, 'this.documentUrl')
-  this.loadPdf();
 
   }
+
+
+
+
+
+
+
+
+
+
+  // tslint:disable-next-line: variable-name
+  public _selectedTab = 0;
+
+  public page = 5;
+
+  public pageLabel!: string;
+
+  public showPdfViewer = true;
+
+  public height: string = 'auto';
+
+  public time = 0;
+  public currentTime = 0;
+
+  private startTime = new Date().getTime();
+  private currentStartTime = new Date().getTime();
+
+  /** This attribute is only used on browser without localStorage (e.g. Brave on iOS) */
+  private themeIfLocalStorageIsUnavailable = 'light';
+
  
 
-  // Replace this URL with the actual URL of your PDF file
-  pdfUrl = 'file:///D:/hasnainaslam245.pdf';
+  private _fullscreen = false;
 
-  
-
-
-
-  loadPdf(): void {
-    
-    const canvasElement = this.pdfCanvas?.nativeElement;
-
-    if (!canvasElement) {
-      console.error('Canvas element is undefined.');
-      return;
-    }
-  
-    const context = canvasElement.getContext('2d');
-  
-    // Initialize PDF.js
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@2.11.338/build/pdf.worker.min.js';
-
-    // Load PDF document from URL
-    pdfjsLib.getDocument(this.pdfUrl).promise.then((pdfDoc: { getPage: (arg0: number) => any; }) => {
-      // Fetch the first page
-      return pdfDoc.getPage(1);
-    }).then((page: { getViewport: (arg0: { scale: number; }) => any; render: (arg0: { canvasContext: CanvasRenderingContext2D | null; viewport: any; }) => void; }) => {
-      // Set up canvas
-      const viewport = page.getViewport({ scale: 1.5 });
-      canvasElement.width = viewport.width;
-      canvasElement.height = viewport.height;
-
-      // Render PDF page to canvas
-      const renderContext = {
-        canvasContext: context,
-        viewport: viewport
-      };
-      page.render(renderContext);
-    }).catch((error: any) => {
-      console.error('Error loading PDF:', error);
-    });
+  public get fullscreen(): boolean {
+    return this._fullscreen;
   }
+
+  public set fullscreen(full: boolean) {
+    this._fullscreen = full;
+    setTimeout(() => this.pdfService.recalculateSize());
+  }
+
+  public localStorageIsSupported() {
+    try {
+      if (localStorage) {
+        return true;
+      }
+    } catch (safariSecurityException) {
+      // localStorage is not available on Safari
+    }
+    return false;
+  }
+
+  public set selectedTab(index: number) {
+    try {
+      if (localStorage) {
+        localStorage.setItem('ngx-extended-pdf-viewer.simple.selectedTab', String(index));
+      }
+    } catch (safariSecurityException) {
+      // localStorage is not available on Safari
+    }
+  }
+
+  public get selectedTab(): number {
+    try {
+      if (localStorage) {
+        return Number(localStorage.getItem('ngx-extended-pdf-viewer.simple.selectedTab')) || 0;
+      }
+    } catch (safariSecurityException) {
+      // localStorage is not available on Safari
+    }
+    return 0;
+  }
+
+  public set theme(theme: string) {
+    try {
+      if (theme !== this.theme && localStorage) {
+        localStorage.setItem('ngx-extended-pdf-viewer.theme', theme);
+        location = location;
+      } else {
+        this.themeIfLocalStorageIsUnavailable = theme;
+        location = location;
+      }
+    } catch (safariSecurityException) {
+      // localStorage is not available on Safari
+      this.themeIfLocalStorageIsUnavailable = theme;
+      location = location;
+    }
+  }
+
+  public get theme(): string {
+    try {
+      if (localStorage) {
+        return localStorage.getItem('ngx-extended-pdf-viewer.theme') || 'light';
+      } else {
+        return this.themeIfLocalStorageIsUnavailable;
+      }
+    } catch (safariSecurityException) {
+      // localStorage is not available on Safari
+      return this.themeIfLocalStorageIsUnavailable;
+    }
+  }
+
+  constructor(private pdfService: NgxExtendedPdfViewerService,private authservice: AuthService) {
+    this.startTime = new Date().getTime();
+
+    // increase the range chunk size for testing purposes
+    // In general, that's not a good idea, but if you know what you're doing, you may
+    // be able to tweak performance by fine-tuning the range chunk size according to the
+    // needs of your application and infrastructure
+    pdfDefaultOptions.rangeChunkSize=1024*128;
+
+  }
+
+  public onUpdateFindResult(event: any): void {
+    console.log('UpdateFindResult ' + event.matches);
+  }
+
+  public async getDiv(): Promise<void> {
+    await this.getDivAtPosition(8, 20);
+  }
+
+  public async getDivAtPosition(page: number, position: number): Promise<void> {
+    const PDFViewerApplication: IPDFViewerApplication = (window as any).PDFViewerApplication;
+
+    if (!PDFViewerApplication.pdfViewer._pages[page].textLayer) {
+      await PDFViewerApplication.pdfViewer._pages[page].draw();
+    } else {
+      const textLayer = PDFViewerApplication.pdfViewer._pages[page].textLayer;
+      const divs = textLayer?.textDivs;
+      const textSnippets = textLayer?.textContentItemsStr;
+    }
+  }
+
+  public onPageRender(): void {
+    this.currentStartTime = new Date().getTime();
+  }
+
+  public onPageRendered(event: PageRenderEvent): void {
+    const endTime = new Date().getTime();
+    if (event.pageNumber === 5 && this.time === 0) {
+      this.time = endTime - this.startTime;
+    }
+    this.currentTime = endTime - this.currentStartTime;
+  }
+
 }
