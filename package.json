@@ -27,7 +27,7 @@
     "jquery": "^3.7.1",
     "ng2-pdf-viewer": "^9.1.4",
     "ng2-pdfjs-viewer": "^17.0.3",
-    "ngx-extended-pdf-viewer": "^15.0.0",
+    "ngx-extended-pdf-viewer": "^15.2.2",
     "ngx-toastr": "^15.2.2",
     "pdfjs-dist": "^4.0.379",
     "rxjs": "~7.5.0",
